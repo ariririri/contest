@@ -1,7 +1,10 @@
+# (0, 3K)同士にして
+# (黒の個数を数えていく -> これが達成できた希望の数. そうすると
+# 黒の個数何個,白の個数何個か?
 N, K = list(int, input())
 
-black_box = [[0] * K for _ in range(2*K)]
-white_box = [[0] * K for _ in range(2*K)]
+black_box = [[0] * 2*K for _ in range(3*K)]
+white_box = [[0] * 2*K for _ in range(3*K)]
 b_will = 0
 w_will = 0
 for _ in range(N):
@@ -10,6 +13,7 @@ for _ in range(N):
     if c == "B":
         b_will += 1
         black_box[x % (2*K)][y % (2*K)] += 1
+        black_box[x % (2*K) + K][y % (2*K) + K] += 1
     else:
         w_will += 1
         white_box[x % (2*K)][y % K] += 1
